@@ -1,10 +1,17 @@
 <template>
-	<UContainer class="py-10">
-		<div class="max-w-lg mx-auto border rounded-2xl shadow p-4 flex flex-col h-[600px] bg-white">
-			<!-- チャット履歴 -->
+	<div class="relative inline-block">
+		<img
+			src="/img/bg.png"
+		>
+		<div class="absolute inset-0 max-w-lg mx-autoshadow px-4 flex flex-col ">
+			<div class="bg-[#8cabd8] ml-5 w-50 h-13">
+				<p class="h-[100%] pl-4 content-center text-black text-xl text-center truncate">
+					友人aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+				</p>
+			</div>
 			<div
 				ref="chatBox"
-				class="flex-1 overflow-y-auto space-y-3 mb-4"
+				class="flex-1 overflow-y-auto space-y-3 my-4"
 			>
 				<div
 					v-for="(msg, index) in messages"
@@ -12,10 +19,16 @@
 					:class="msg.user === 'me' ? 'text-right' : 'text-left'"
 				>
 					<div
-						:class="msg.user === 'me' ? 'bg-blue-500 text-white ml-auto' : 'bg-gray-200 text-black mr-auto'"
-						class="inline-block px-4 py-2 rounded-xl max-w-[70%]"
+						:class="msg.user === 'me' ? 'bg-[#a4e59a] text-black ml-auto' : 'bg-gray-200 text-black mr-auto'"
+						class="inline-block px-4 py-2 rounded-2xl max-w-[70%] text-xl"
 					>
 						{{ msg.text }}
+					</div>
+					<div
+						v-show="msg.user !== 'me'"
+						class="inline-block text-xs"
+					>
+						既読<br>14: 53
 					</div>
 				</div>
 			</div>
@@ -36,7 +49,8 @@
 				</UButton>
 			</div>
 		</div>
-	</UContainer>
+		<img src="/img/bgtxt.png">
+	</div>
 </template>
 
 <script setup>
