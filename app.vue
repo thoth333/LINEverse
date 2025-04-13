@@ -18,7 +18,6 @@
   height: 100%;
 }
 
-
 .center {
   text-align: center;
 }
