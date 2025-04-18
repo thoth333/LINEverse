@@ -3,30 +3,36 @@
 		<img
 			src="/img/bg.png"
 		>
-		<div class="absolute inset-0 max-w-lg mx-autoshadow px-4 flex flex-col ">
+		<div class="absolute inset-0 max-w-lg mx-autoshadow pl-2 pr-4 flex flex-col ">
 			<div class="bg-[#8cabd8] ml-5 w-50 h-13">
-				<p class="h-[100%] pl-4 content-center text-black text-xl text-center truncate">
+				<p class="h-[100%] pl-6 content-center text-black text-xl text-center truncate">
 					友人aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 				</p>
 			</div>
 			<div
 				ref="chatBox"
-				class="flex-1 overflow-y-auto space-y-3 my-4"
+				class="flex-1 overflow-y-auto space-y-3 mb-4 pt-3"
 			>
 				<div
 					v-for="(msg, index) in messages"
 					:key="index"
 					:class="msg.user === 'me' ? 'text-right' : 'text-left'"
 				>
+					<MessageIcon
+						v-show="msg.user !== 'me'"
+						class="inline-block align-middle pr-1.5"
+						:icon="icon"
+					/>
+
 					<div
-						:class="msg.user === 'me' ? 'bg-[#a4e59a] text-black ml-auto' : 'bg-gray-200 text-black mr-auto'"
-						class="inline-block px-4 py-2 rounded-2xl max-w-[70%] text-xl"
+						:class="msg.user === 'me' ? 'bg-[#a4e59a] text-black ml-auto' : 'bg-white text-black mr-auto'"
+						class="inline-block align-middle px-4 py-2 rounded-2xl max-w-[70%] text-xl"
 					>
 						{{ msg.text }}
 					</div>
 					<div
 						v-show="msg.user !== 'me'"
-						class="inline-block text-xs"
+						class="inline-block align-middle text-xs"
 					>
 						既読<br>14: 53
 					</div>
@@ -35,6 +41,9 @@
 
 			<!-- 入力欄 -->
 			<div class="flex gap-2">
+				<IconUploader
+					@update:image="icon = $event"
+				/>
 				<UInput
 					v-model="newMessage"
 					placeholder="メッセージを入力..."
@@ -62,6 +71,7 @@ const messages = ref([
 ]);
 const newMessage = ref('');
 const chatBox = ref(null);
+const icon = ref(null);
 
 const sendMessage = async () => {
 	const text = newMessage.value.trim();
