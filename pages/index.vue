@@ -1,11 +1,11 @@
 <template>
 	<div class="relative inline-block">
 		<img
-			src="/img/bg.png"
+			src="/img/テストbg.png"
 		>
 		<div class="absolute inset-0 max-w-lg mx-autoshadow pl-2 pr-4 flex flex-col ">
 			<div class="bg-[#8cabd8] ml-5 w-50 h-13">
-				<p class="h-[100%] pl-6 content-center text-black text-xl text-left truncate">
+				<p class="h-[100%] pl-6 content-center text-black text-xl text-left font-bold truncate">
 					{{ userName }}
 				</p>
 			</div>
@@ -70,6 +70,14 @@
 					</template>
 				</div>
 			</div>
+			<SearchIcon size="25" />
+			<MenuIcon size="25" />
+			<ChevronIcon size="25" />
+			<CallIcon size="25" />
+			<AddIcon size="25" />
+			<CameraIcon size="25" />
+			<MicIcon size="25" />
+			<PhotoIcon size="25" />
 			<!-- 入力欄 -->
 			<div
 				class="fixed z-10 left-1/2 -translate-x-1/2"
