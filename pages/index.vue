@@ -72,8 +72,8 @@
 			</div>
 			<!-- 入力欄 -->
 			<div
-				class="fixed bottom-10 z-10"
-				style="right: 47px; width: 220px; height: 53px; max-width: 400px; max-height: 500px;"
+				class="fixed z-10 left-1/2 -translate-x-1/2"
+				style="bottom: 40px; width: 220px; height: 53px; max-width: 400px; max-height: 500px;"
 			>
 				<div class="flex items-center bg-[#F5F5F5] rounded-full border-1 border-[#EEEEEE] px-4 py-3 h-10">
 					<input
@@ -91,14 +91,21 @@
 				@change="onFileChange"
 			>
 
+			<!-- トーク履歴読込ボタン: 画面中央配置＆messagesが空のときのみ表示 -->
 			<button
-				class="mt-2 px-3 py-1 bg-[#a4e59a] rounded cursor-pointer"
+				v-if="messages.length === 0"
+				class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-6 py-3 bg-[#a4e59a] rounded cursor-pointer text-xl shadow-lg"
+				style="z-index: 20;"
 				@click="onTxtClick"
 			>
 				トーク履歴読込
 			</button>
 		</div>
-		<img src="/img/bgtxt.png">
+		<img
+			src="/img/bgtxt.png"
+			class="fixed bottom-0 left-1/2 -translate-x-1/2 w-auto max-w-full"
+			style="z-index: 0;"
+		>
 	</div>
 </template>
 
