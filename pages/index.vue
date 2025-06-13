@@ -1,10 +1,7 @@
 <template>
-	<div class="relative inline-block">
-		<img
-			src="/img/テストbg.png"
-		>
-		<div class="absolute inset-0 max-w-lg mx-autoshadow pl-2 pr-4 flex flex-col ">
-			<div class="bg-[#8cabd8] ml-5 w-50 h-13">
+	<div class="min-h-screen w-full bg-[#8cabd8] relative">
+		<div class="absolute inset-0 max-w-lg mx-auto shadow pl-2 pr-4 flex flex-col ">
+			<div class="ml-5 w-50 h-13">
 				<p class="h-[100%] pl-6 content-center text-black text-xl text-left font-bold truncate">
 					{{ userName }}
 				</p>
@@ -108,12 +105,12 @@
 			>
 				トーク履歴読込
 			</button>
+			<img
+				src="/img/bgtxt.png"
+				class="fixed bottom-0 left-1/2 -translate-x-1/2 w-auto max-w-full"
+				style="z-index: 0;"
+			>
 		</div>
-		<img
-			src="/img/bgtxt.png"
-			class="fixed bottom-0 left-1/2 -translate-x-1/2 w-auto max-w-full"
-			style="z-index: 0;"
-		>
 	</div>
 </template>
 
