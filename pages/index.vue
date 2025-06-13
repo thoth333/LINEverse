@@ -31,7 +31,7 @@
 			>
 			<div
 				ref="chatBox"
-				class="flex-1 overflow-y-auto space-y-3 mb-0 pt-3"
+				class="flex-1 overflow-y-auto space-y-3 mb-16 pt-3"
 			>
 				<div
 					v-for="(msg, index) in messages"
@@ -81,6 +81,7 @@
 						</div>
 					</template>
 				</div>
+				<div ref="bottom" />
 			</div>
 			<!-- 入力エリア -->
 			<div
@@ -133,6 +134,7 @@ const chatBox = ref(null);
 const icon = ref('/img/default-icon.png'); // デフォルトアイコン画像
 const fileInput = ref(null);
 const txtInput = ref(null);
+const bottom = ref(null);
 
 const sendMessage = async () => {
 	const text = newMessage.value.trim();
@@ -241,5 +243,8 @@ function parseLineTxt(text) {
 	if (firstOther) userName.value = firstOther.rawUser;
 
 	messages.value = msgs;
+	nextTick(() => {
+		bottom.value?.scrollIntoView({ behavior: 'smooth' });
+	});
 }
 </script>
