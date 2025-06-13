@@ -1,10 +1,25 @@
 <template>
 	<div class="min-h-screen w-full bg-[#8cabd8] relative">
 		<div class="absolute inset-0 max-w-lg mx-auto shadow pl-2 pr-4 flex flex-col ">
-			<div class="ml-5 w-50 h-13">
-				<p class="h-[100%] pl-6 content-center text-black text-xl text-left font-bold truncate">
-					{{ userName }}
-				</p>
+			<!-- ヘッダー -->
+			<div class="flex items-center justify-between h-13 px-0.5">
+				<!-- 左端: ChevronIcon -->
+				<div class="flex items-center">
+					<ChevronIcon
+						class="mr-2"
+						size="35"
+					/>
+					<span class="text-black text-xl font-bold truncate">{{ userName }}</span>
+				</div>
+				<!-- 右端: MenuIcon, CallIcon, SearchIcon -->
+				<div class="flex items-center space-x-4">
+					<SearchIcon size="25" />
+					<CallIcon size="25" />
+					<MenuIcon
+						size="20"
+						class="ml-1"
+					/>
+				</div>
 			</div>
 			<!-- アップロード用input（非表示） -->
 			<input
@@ -16,7 +31,7 @@
 			>
 			<div
 				ref="chatBox"
-				class="flex-1 overflow-y-auto space-y-3 mb-20 pt-3"
+				class="flex-1 overflow-y-auto space-y-3 mb-0 pt-3"
 			>
 				<div
 					v-for="(msg, index) in messages"
@@ -67,27 +82,28 @@
 					</template>
 				</div>
 			</div>
-			<SearchIcon size="25" />
-			<MenuIcon size="25" />
-			<ChevronIcon size="25" />
-			<CallIcon size="25" />
-			<AddIcon size="25" />
-			<CameraIcon size="25" />
-			<MicIcon size="25" />
-			<PhotoIcon size="25" />
-			<!-- 入力欄 -->
+			<!-- 入力エリア -->
 			<div
-				class="fixed z-10 left-1/2 -translate-x-1/2"
-				style="bottom: 40px; width: 220px; height: 53px; max-width: 400px; max-height: 500px;"
+				class="fixed bottom-0 left-0 w-full z-30 flex items-center px-2 py-2 space-x-2 bg-white"
 			>
-				<div class="flex items-center bg-[#F5F5F5] rounded-full border-1 border-[#EEEEEE] px-4 py-3 h-10">
-					<input
-						v-model="newMessage"
-						class="flex-1 bg-transparent outline-none text-md"
-						@keydown.enter="sendMessage"
-					>
-				</div>
+				<AddIcon
+					size="30"
+					class="ml-1"
+				/>
+				<CameraIcon size="30" />
+				<PhotoIcon size="30" />
+				<input
+					ref="txtInput"
+					v-model="newMessage"
+					type="text"
+					class="flex-1 bg-[#F5F5F5] rounded-full border border-[#EEEEEE] ml-2 px-4 py-3 outline-none text-md"
+					:placeholder="''"
+					@keydown.enter="sendMessage"
+				>
+				<MicIcon size="30" />
 			</div>
+
+			<!-- トーク履歴読込ボタン: 画面中央配置＆messagesが空のときのみ表示 -->
 			<input
 				ref="txtInput"
 				type="file"
@@ -95,8 +111,6 @@
 				class="hidden"
 				@change="onFileChange"
 			>
-
-			<!-- トーク履歴読込ボタン: 画面中央配置＆messagesが空のときのみ表示 -->
 			<button
 				v-if="messages.length === 0"
 				class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-6 py-3 bg-[#a4e59a] rounded cursor-pointer text-xl shadow-lg"
@@ -105,11 +119,6 @@
 			>
 				トーク履歴読込
 			</button>
-			<img
-				src="/img/bgtxt.png"
-				class="fixed bottom-0 left-1/2 -translate-x-1/2 w-auto max-w-full"
-				style="z-index: 0;"
-			>
 		</div>
 	</div>
 </template>
@@ -118,7 +127,7 @@
 import { ref, nextTick } from 'vue';
 
 const messages = ref([]);
-const userName = ref('トーク相手'); // 画面上部の名前
+const userName = ref('あなた'); // 画面上部の名前
 const newMessage = ref('');
 const chatBox = ref(null);
 const icon = ref('/img/default-icon.png'); // デフォルトアイコン画像

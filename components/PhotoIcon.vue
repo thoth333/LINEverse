@@ -4,7 +4,7 @@
 		:width="size"
 		:height="size"
 		viewBox="0 0 24 24"
-		fill="#000"
+		fill="#333"
 		aria-hidden="true"
 		style="transform: scaleX(-1);"
 	>

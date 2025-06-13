@@ -4,7 +4,7 @@
 		:width="size"
 		:height="size"
 		viewBox="0 0 24 24"
-		fill="0x000000"
+		fill="#000"
 		aria-hidden="true"
 	>
 		<!-- Icon from Material Symbols by Google -->
