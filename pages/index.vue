@@ -7,16 +7,16 @@
 				<div class="flex items-center">
 					<ChevronIcon
 						class="mr-2"
-						size="35"
+						size="40"
 					/>
-					<span class="text-black text-xl font-bold truncate">{{ userName }}</span>
+					<span class="text-black text-lg font-bold truncate">{{ userName }}</span>
 				</div>
 				<!-- 右端: MenuIcon, CallIcon, SearchIcon -->
 				<div class="flex items-center space-x-4">
-					<SearchIcon size="25" />
-					<CallIcon size="25" />
+					<SearchIcon size="20" />
+					<CallIcon size="20" />
 					<MenuIcon
-						size="20"
+						size="18"
 						class="ml-1"
 					/>
 				</div>
@@ -31,7 +31,7 @@
 			>
 			<div
 				ref="chatBox"
-				class="flex-1 overflow-y-auto space-y-3 mb-16 pt-3"
+				class="flex-1 overflow-y-auto space-y-3 mb-12 pt-3"
 			>
 				<div
 					v-for="(msg, index) in messages"
@@ -52,7 +52,7 @@
 							/>
 							<div
 								:class="msg.user === 'me' ? 'bg-[#a4e59a] text-black' : 'bg-white text-black'"
-								class="inline-block align-top px-4 py-2 rounded-2xl max-w-[70%] text-xl break-words whitespace-pre-line"
+								class="inline-block align-top px-4 py-2 rounded-2xl max-w-[70%] text-lg break-words whitespace-pre-line"
 							>
 								{{ msg.text }}
 							</div>
@@ -97,7 +97,7 @@
 					ref="txtInput"
 					v-model="newMessage"
 					type="text"
-					class="flex-1 bg-[#F5F5F5] rounded-full border border-[#EEEEEE] ml-2 px-4 py-3 outline-none text-md"
+					class="flex-1 bg-[#F5F5F5] rounded-full border border-[#EEEEEE] ml-2 px-4 py-1 outline-none text-md"
 					:placeholder="''"
 					@keydown.enter="sendMessage"
 				>
@@ -114,7 +114,7 @@
 			>
 			<button
 				v-if="messages.length === 0"
-				class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-6 py-3 bg-[#a4e59a] rounded cursor-pointer text-xl shadow-lg"
+				class="whitespace-nowrap absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-6 py-3 bg-[#a4e59a] rounded cursor-pointer text-xl shadow-lg"
 				style="z-index: 20;"
 				@click="onTxtClick"
 			>
