@@ -7,8 +7,7 @@
 		fill="#000"
 		aria-hidden="true"
 	>
-		<!-- Icon from Material Symbols by Google -->
-		<path d="M14 17.308L8.692 12L14 6.692l.708.708l-4.6 4.6l4.6 4.6z" />
+		<!-- Icon from Material Design Light by Pictogrammers - https://github.com/Templarian/MaterialDesignLight/blob/master/LICENSE.md -->		<path d="M14.41 18.16L8.75 12.5l5.66-5.66l.7.71l-4.95 4.95l4.95 4.95z" />
 	</svg>
 </template>
 

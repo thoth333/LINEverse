@@ -4,12 +4,12 @@
 		:width="size"
 		:height="size"
 		viewBox="0 0 24 24"
-		fill="#333"
+		fill="#000"
 		aria-hidden="true"
 	>
-		<!-- Icon from Material Symbols by Google -->
+		<!-- Icon from Material Design Light by Pictogrammers - https://github.com/Templarian/MaterialDesignLight/blob/master/LICENSE.md -->
 		<path
-			d="M12 14q-1.25 0-2.125-.875T9 11V5q0-1.25.875-2.125T12 2t2.125.875T15 5v6q0 1.25-.875 2.125T12 14m-1 7v-3.075q-2.6-.35-4.3-2.325T5 11h2q0 2.075 1.463 3.538T12 16t3.538-1.463T17 11h2q0 2.625-1.7 4.6T13 17.925V21zm1-9q.425 0 .713-.288T13 11V5q0-.425-.288-.712T12 4t-.712.288T11 5v6q0 .425.288.713T12 12"
+			d="M11 21v-3c-3.36-.27-6-3.08-6-6.5V11h1v.5a5.5 5.5 0 0 0 5.5 5.5a5.5 5.5 0 0 0 5.5-5.5V11h1v.5c0 3.42-2.64 6.23-6 6.5v3zm.5-18A2.5 2.5 0 0 1 14 5.5v6a2.5 2.5 0 0 1-2.5 2.5A2.5 2.5 0 0 1 9 11.5v-6A2.5 2.5 0 0 1 11.5 3m0 1A1.5 1.5 0 0 0 10 5.5v6a1.5 1.5 0 0 0 1.5 1.5a1.5 1.5 0 0 0 1.5-1.5v-6A1.5 1.5 0 0 0 11.5 4"
 		/>
 	</svg>
 </template>

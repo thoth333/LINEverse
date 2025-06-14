@@ -1,12 +1,11 @@
 <template>
 	<div class="min-h-screen w-full bg-[#8cabd8] relative">
-		<div class="absolute inset-0 max-w-lg mx-auto shadow pl-2 pr-4 flex flex-col ">
+		<div class="absolute inset-0 max-w-lg mx-auto shadow px-2 flex flex-col ">
 			<!-- ヘッダー -->
 			<div class="flex items-center justify-between h-13 px-0.5">
 				<!-- 左端: ChevronIcon -->
 				<div class="flex items-center">
 					<ChevronIcon
-						class="mr-2"
 						size="45"
 					/>
 					<span class="text-black text-lg font-bold truncate">{{ userName }}</span>
@@ -17,7 +16,7 @@
 					<CallIcon size="22" />
 					<MenuIcon
 						size="20"
-						class="ml-1"
+						class="ml-1 mr-2"
 					/>
 				</div>
 			</div>
