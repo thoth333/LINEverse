@@ -7,16 +7,16 @@
 				<div class="flex items-center">
 					<ChevronIcon
 						class="mr-2"
-						size="40"
+						size="45"
 					/>
 					<span class="text-black text-lg font-bold truncate">{{ userName }}</span>
 				</div>
 				<!-- 右端: MenuIcon, CallIcon, SearchIcon -->
 				<div class="flex items-center space-x-4">
-					<SearchIcon size="20" />
-					<CallIcon size="20" />
+					<SearchIcon size="22" />
+					<CallIcon size="22" />
 					<MenuIcon
-						size="18"
+						size="20"
 						class="ml-1"
 					/>
 				</div>
@@ -97,7 +97,7 @@
 					ref="txtInput"
 					v-model="newMessage"
 					type="text"
-					class="flex-1 bg-[#F5F5F5] rounded-full border border-[#EEEEEE] ml-2 px-4 py-1 outline-none text-md"
+					class="flex-1 bg-[#F5F5F5] rounded-full border border-[#EEEEEE] min-w-8 ml-2 px-4 py-1 outline-none text-md"
 					:placeholder="''"
 					@keydown.enter="sendMessage"
 				>
