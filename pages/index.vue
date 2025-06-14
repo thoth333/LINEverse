@@ -84,7 +84,7 @@
 			</div>
 			<!-- 入力エリア -->
 			<div
-				class="fixed bottom-0 left-0 w-full z-30 flex items-center px-2 py-2 space-x-2 bg-white"
+				class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-lg z-30 flex items-center px-2 py-2 space-x-2 bg-white"
 			>
 				<AddIcon
 					size="30"
