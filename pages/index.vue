@@ -8,7 +8,7 @@
 					<ChevronIcon
 						size="45"
 					/>
-					<span class="text-black text-lg font-bold truncate">{{ userName }}</span>
+					<span class="text-black text-lg font-bold truncate mt-0.5">{{ userName }}</span>
 				</div>
 				<!-- 右端: MenuIcon, CallIcon, SearchIcon -->
 				<div class="flex items-center space-x-4">
