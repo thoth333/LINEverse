@@ -1,5 +1,5 @@
 <template>
-	<div class="min-h-screen w-full bg-[#8cabd8] relative">
+	<div class="min-h-screen w-full bg-[#8cabd8] dark:bg-[#1a1a1a] relative">
 		<div class="absolute inset-0 max-w-lg mx-auto shadow px-2 flex flex-col ">
 			<!-- ヘッダー -->
 			<div class="flex items-center justify-between h-13 px-0.5">
@@ -8,7 +8,7 @@
 					<ChevronIcon
 						size="45"
 					/>
-					<span class="text-black text-lg font-bold truncate mt-0.5">{{ userName }}</span>
+					<span class="text-black dark:text-white text-lg font-bold truncate mt-0.5">{{ userName }}</span>
 				</div>
 				<!-- 右端: MenuIcon, CallIcon, SearchIcon -->
 				<div class="flex items-center space-x-4">
@@ -50,21 +50,21 @@
 								@click="onIconClick"
 							/>
 							<div
-								:class="msg.user === 'me' ? 'bg-[#a4e59a] text-black' : 'bg-white text-black'"
+								:class="msg.user === 'me' ? 'bg-[#a4e59a] text-black' : 'bg-white text-black dark:bg-[#2a2a2a] dark:text-white'"
 								class="inline-block align-top px-4 py-2 rounded-2xl max-w-[70%] text-lg break-words whitespace-pre-line"
 							>
 								{{ msg.text }}
 							</div>
 							<div
 								v-if="msg.user === 'me'"
-								class="inline-block self-end text-xs text-right mr-1 mb-1 text-gray-500"
+								class="inline-block self-end text-xs text-right mr-1 mb-1 text-[#414e61] dark:text-[#797979]"
 								style="min-width: 40px;"
 							>
 								既読<br>{{ msg.time }}
 							</div>
 							<div
 								v-else
-								class="inline-block self-end text-xs ml-1 mb-1 text-gray-500"
+								class="inline-block self-end text-xs ml-1 mb-1 text-[#414e61] dark:text-[#797979]"
 								style="min-width: 40px;"
 							>
 								{{ msg.time }}
@@ -74,7 +74,7 @@
 					<!-- 日付ラベル -->
 					<template v-else-if="msg.type === 'date'">
 						<div class="flex justify-center my-2">
-							<span class="bg-[#7792b6] bg-opacity-60 text-white text-xs rounded-xl px-4 py-1">
+							<span class="bg-[#7792b6] dark:bg-[#161616] bg-opacity-60 text-white text-xs rounded-xl px-4 py-1">
 								{{ msg.date }}
 							</span>
 						</div>
@@ -84,7 +84,7 @@
 			</div>
 			<!-- 入力エリア -->
 			<div
-				class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-lg z-30 flex items-center px-2 py-2 space-x-2 bg-white"
+				class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-lg z-30 flex items-center px-2 py-2 space-x-2 bg-white dark:bg-[#111111]"
 			>
 				<AddIcon
 					size="30"
@@ -96,7 +96,7 @@
 					ref="txtInput"
 					v-model="newMessage"
 					type="text"
-					class="flex-1 bg-[#F5F5F5] rounded-full border border-[#EEEEEE] min-w-8 ml-2 px-4 py-1 outline-none text-md"
+					class="flex-1 bg-[#F5F5F5] dark:bg-[#1f1f1f] rounded-full border border-[#EEEEEE] dark:border-[#282828] min-w-8 ml-2 px-4 py-1 outline-none text-md"
 					:placeholder="''"
 					@keydown.enter="sendMessage"
 				>
@@ -113,7 +113,7 @@
 			>
 			<button
 				v-if="messages.length === 0"
-				class="whitespace-nowrap absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-6 py-3 bg-[#a4e59a] rounded cursor-pointer text-xl shadow-lg"
+				class="whitespace-nowrap absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-6 py-3 bg-[#a4e59a] rounded cursor-pointer text-xl shadow-lg text-black dark:text-black"
 				style="z-index: 20;"
 				@click="onTxtClick"
 			>
@@ -228,6 +228,7 @@ function parseLineTxt(text) {
 				type: 'msg',
 				time: msgMatch[1],
 				user: msgMatch[2] === aiteName ? 'me' : 'other',
+				// me は、緑色のメッセージ。つまり、本来の個チャの相手。（"あなた"は other）
 				rawUser: msgMatch[2],
 				text: msgMatch[3],
 			};
