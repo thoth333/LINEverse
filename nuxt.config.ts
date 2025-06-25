@@ -8,6 +8,8 @@ export default defineNuxtConfig({
 			meta: [
 				{ charset: 'utf-8' },
 				{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
+				{ name: 'theme-color', content: '#627898', media: '(prefers-color-scheme: light)' },
+				{ name: 'theme-color', content: '#111111', media: '(prefers-color-scheme: dark)' },
 			],
 		},
 	},
@@ -30,7 +32,7 @@ export default defineNuxtConfig({
 			start_url: '/',
 			display: 'standalone',
 			background_color: '#ffffff',
-			theme_color: '#627898',
+			theme_color: '#ffffff',
 			icons: [
 				{ src: '/favicon-192.png', sizes: '192x192', type: 'image/png' },
 				{ src: '/favicon-512.png', sizes: '512x512', type: 'image/png' },
