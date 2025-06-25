@@ -57,14 +57,14 @@
 							</div>
 							<div
 								v-if="msg.user === 'me'"
-								class="inline-block self-end text-xs text-right mr-1 mb-1 text-[#414e61] dark:text-[#797979]"
+								class="inline-block self-end text-xs text-right mr-1.5 mb-1 text-[#414e61] dark:text-[#797979]"
 								style="min-width: 40px;"
 							>
 								既読<br>{{ msg.time }}
 							</div>
 							<div
 								v-else
-								class="inline-block self-end text-xs ml-1 mb-1 text-[#414e61] dark:text-[#797979]"
+								class="inline-block self-end text-xs ml-1.5 mb-1 text-[#414e61] dark:text-[#797979]"
 								style="min-width: 40px;"
 							>
 								{{ msg.time }}
